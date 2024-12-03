@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>fontStyle/JuliusSansOne-Regular.ttf</file>
+        <file>fontStyle/OFL.txt</file>
+    </qresource>
+</RCC>
