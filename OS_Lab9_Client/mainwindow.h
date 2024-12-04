@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "QThread"
+#include "QTimer"
+
+#include <QTableWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,14 +24,22 @@ public:
 private slots:
     void on_joinButton_clicked();
     void on_quitButton_clicked();
-
     void on_voteButton_clicked();
-
     void on_homeButton_2_clicked();
+
+    void on_voteTable_itemSelectionChanged();
+
+    void FillVoteTable();
+    void OutputPodium();
+
+    void on_sendButton_clicked();
+
+    void on_nameJoinLineEdit_textChanged(const QString &arg1);
+
+    void on_newIdeaTextEdit_textChanged();
 
 private:
     Ui::MainWindow *ui;
-
     std::string myName;
 };
 #endif // MAINWINDOW_H

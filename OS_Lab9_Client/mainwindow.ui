@@ -38,7 +38,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="homePage">
        <property name="styleSheet">
@@ -46,7 +46,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="leftMargin">
          <number>0</number>
@@ -71,7 +71,7 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>30</height>
+            <height>50</height>
            </size>
           </property>
          </spacer>
@@ -104,7 +104,7 @@ background: transparent;
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>60</height>
            </size>
           </property>
          </spacer>
@@ -131,7 +131,10 @@ background: transparent;
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="topMargin">
-           <number>0</number>
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>6</number>
           </property>
           <item>
            <widget class="QLineEdit" name="nameJoinLineEdit">
@@ -166,9 +169,39 @@ background: transparent;
          </layout>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="warningLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>477</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent;
+color: rgb(179, 0, 0);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <property name="topMargin">
-           <number>0</number>
+           <number>10</number>
           </property>
           <item>
            <widget class="QPushButton" name="joinButton">
@@ -427,15 +460,15 @@ background: transparent;</string>
            </widget>
           </item>
           <item>
-           <widget class="QTextEdit" name="createIdeaTextEdit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+           <widget class="QTextEdit" name="newIdeaTextEdit">
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">background: transparent;
+background-color: rgb(255, 255, 255);</string>
             </property>
            </widget>
           </item>
@@ -729,13 +762,39 @@ background: transparent;
          </widget>
         </item>
         <item>
-         <widget class="QTableWidget" name="chooseIdeaTableWidget">
+         <widget class="QTableWidget" name="voteTable">
+          <property name="font">
+           <font>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background: transparent;
-font-family: 'Julius Sans One', sans-serif; /* Шрифт */
-font-size: 30px;    
-background-color: rgba(255, 255, 255, 0.8); </string>
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
           </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SelectionMode::MultiSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>1</number>
+          </property>
+          <attribute name="horizontalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <column/>
          </widget>
         </item>
         <item>
@@ -1124,7 +1183,7 @@ background: transparent;
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_24">
+         <widget class="QLabel" name="podiumTopicLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -1229,7 +1288,7 @@ background: transparent;
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_25">
+              <widget class="QLabel" name="secondPlaceLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1249,7 +1308,7 @@ background: transparent;
 </string>
                </property>
                <property name="text">
-                <string>erjteyjety jetyjejet</string>
+                <string>Second</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1323,7 +1382,7 @@ background: transparent;
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_27">
+              <widget class="QLabel" name="firstPlaceLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1343,7 +1402,7 @@ background: transparent;
 </string>
                </property>
                <property name="text">
-                <string>dtykfjrtsjeуакпкеренрмкаtyjetyj etyjetjyt</string>
+                <string>First</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1412,7 +1471,7 @@ background: transparent;
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_29">
+              <widget class="QLabel" name="thirdPlaceLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1432,7 +1491,7 @@ background: transparent;
 </string>
                </property>
                <property name="text">
-                <string>JUICjetj etjertjejrE</string>
+                <string>Third</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1586,7 +1645,23 @@ QPushButton:pressed {
     </hint>
     <hint type="destinationlabel">
      <x>453</x>
-     <y>382</y>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sendButton</sender>
+   <signal>clicked()</signal>
+   <receiver>newIdeaTextEdit</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>679</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>672</x>
+     <y>375</y>
     </hint>
    </hints>
   </connection>
