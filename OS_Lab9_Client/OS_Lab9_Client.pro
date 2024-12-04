@@ -24,6 +24,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    images/ICON.png \
+    images/ICON_BW.png \
     images/clock.png \
     images/firstPlacePodium.png \
     images/logo.png \
@@ -31,6 +33,7 @@ DISTFILES += \
     images/moneyBackgroung.png \
     images/secondPlacePodium.png \
     images/thirdPlacePodium.png \
+    images/userName.png \
     images/waitPageBackgroung.png
 
 RESOURCES += \
