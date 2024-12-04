@@ -38,7 +38,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="homePage">
        <property name="styleSheet">
@@ -134,7 +134,7 @@ background: transparent;
            <number>10</number>
           </property>
           <property name="bottomMargin">
-           <number>10</number>
+           <number>6</number>
           </property>
           <item>
            <widget class="QLineEdit" name="nameJoinLineEdit">
@@ -1645,7 +1645,23 @@ QPushButton:pressed {
     </hint>
     <hint type="destinationlabel">
      <x>453</x>
-     <y>382</y>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sendButton</sender>
+   <signal>clicked()</signal>
+   <receiver>newIdeaTextEdit</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>679</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>672</x>
+     <y>375</y>
     </hint>
    </hints>
   </connection>

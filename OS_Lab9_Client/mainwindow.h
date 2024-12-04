@@ -34,6 +34,10 @@ private slots:
 
     void on_sendButton_clicked();
 
+    void on_nameJoinLineEdit_textChanged(const QString &arg1);
+
+    void on_newIdeaTextEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
     std::string myName;

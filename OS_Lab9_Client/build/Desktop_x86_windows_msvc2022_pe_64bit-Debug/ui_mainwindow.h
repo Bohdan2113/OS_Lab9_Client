@@ -170,7 +170,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        horizontalLayout_2->setContentsMargins(-1, 10, -1, 10);
+        horizontalLayout_2->setContentsMargins(-1, 10, -1, 6);
         nameJoinLineEdit = new QLineEdit(homePage);
         nameJoinLineEdit->setObjectName("nameJoinLineEdit");
         QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
@@ -856,8 +856,9 @@ public:
 
         retranslateUi(MainWindow);
         QObject::connect(nameJoinLineEdit, &QLineEdit::returnPressed, joinButton, qOverload<>(&QPushButton::click));
+        QObject::connect(sendButton, &QPushButton::clicked, newIdeaTextEdit, qOverload<>(&QTextEdit::setFocus));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -885,11 +886,11 @@ public:
         label_22->setText(QString());
         label_23->setText(QCoreApplication::translate("MainWindow", "Top 3 ideas:", nullptr));
         podiumTopicLabel->setText(QCoreApplication::translate("MainWindow", "How to stay survive?", nullptr));
-        secondPlaceLabel->setText(QCoreApplication::translate("MainWindow", "erjteyjety jetyjejet", nullptr));
+        secondPlaceLabel->setText(QCoreApplication::translate("MainWindow", "Second", nullptr));
         label_26->setText(QString());
-        firstPlaceLabel->setText(QCoreApplication::translate("MainWindow", "dtykfjrtsje\321\203\320\260\320\272\320\277\320\272\320\265\321\200\320\265\320\275\321\200\320\274\320\272\320\260tyjetyj etyjetjyt", nullptr));
+        firstPlaceLabel->setText(QCoreApplication::translate("MainWindow", "First", nullptr));
         label_28->setText(QString());
-        thirdPlaceLabel->setText(QCoreApplication::translate("MainWindow", "JUICjetj etjertjejrE", nullptr));
+        thirdPlaceLabel->setText(QCoreApplication::translate("MainWindow", "Third", nullptr));
         label_30->setText(QString());
         homeButton_2->setText(QCoreApplication::translate("MainWindow", "Home", nullptr));
     } // retranslateUi
