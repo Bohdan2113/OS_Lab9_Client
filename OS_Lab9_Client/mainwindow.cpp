@@ -136,12 +136,14 @@ void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
         break;
     case 2:
         delete timer;
+        timer = nullptr;
         FillVoteTable();
         timer = new CountdownTimer(0, 3, ui->timeVoteLabel, ui->podiumPage, ui->stackedWidget);
         break;
     case 3: break;
     case 4:
         delete timer;
+        timer = nullptr;
         OutputPodium();
         break;
     default:

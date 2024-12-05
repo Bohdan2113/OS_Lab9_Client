@@ -12,7 +12,7 @@ class CountdownTimer : public QWidget {
 
 public:
     CountdownTimer(int minutes, int seconds, QLabel* label, QWidget* nextPage, QStackedWidget* stackedWidget);
-
+    ~CountdownTimer();
 private slots:
     void updateTime();
 

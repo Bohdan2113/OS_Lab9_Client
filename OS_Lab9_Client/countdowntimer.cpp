@@ -11,11 +11,18 @@ CountdownTimer::CountdownTimer(int minutes, int seconds, QLabel* label, QWidget*
     updateDisplay();
 }
 
+CountdownTimer::~CountdownTimer()
+{
+    delete timer; // Звільняємо таймер
+    timer = nullptr;
+}
+
 void CountdownTimer::updateTime() {
     if (seconds == 0) {
         if (minutes == 0) {
             timer->stop(); // Зупиняємо таймер
             delete timer; // Звільняємо таймер
+            timer = nullptr;
             stackedWidget->setCurrentWidget(nextPage);
             return;
         } else {
