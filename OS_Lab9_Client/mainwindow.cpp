@@ -104,6 +104,12 @@ void MainWindow::on_voteTable_itemSelectionChanged()
 
 void MainWindow::on_nameJoinLineEdit_textChanged(const QString &lineText)
 {
+    QString sanitizedText = lineText;
+    sanitizedText.remove('|');
+
+    if (sanitizedText != lineText)
+        ui->nameJoinLineEdit->setText(sanitizedText);
+
     if(lineText.size() == 1) {
         ui->warningLabel->setText("");
         ui->nameJoinLineEdit->setStyleSheet(

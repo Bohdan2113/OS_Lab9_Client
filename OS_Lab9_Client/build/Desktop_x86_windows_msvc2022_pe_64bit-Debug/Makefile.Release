@@ -369,7 +369,9 @@ release\moc_countdowntimer.cpp: ..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qinputmethod.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qwidget.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qaction.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qkeysequence.h \
@@ -395,19 +397,14 @@ release\moc_countdowntimer.cpp: ..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QSize \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QSizeF \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\QTransform \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QVBoxLayout \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qboxlayout.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlayout.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlayoutitem.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qgridlayout.h \
 		release\moc_predefs.h \
 		D:\Qt\6.5.6\msvc2019_64\bin\moc.exe
 	D:\Qt\6.5.6\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/bogda/OneDrive/Desktop/Semester3/OS/Lab_9(OS)/OS_Lab9_Client/OS_Lab9_Client/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/release/moc_predefs.h" -ID:/Qt/6.5.6/msvc2019_64/mkspecs/win32-msvc -I"C:/Users/bogda/OneDrive/Desktop/Semester3/OS/Lab_9(OS)/OS_Lab9_Client/OS_Lab9_Client" -ID:/Qt/6.5.6/msvc2019_64/include -ID:/Qt/6.5.6/msvc2019_64/include/QtWidgets -ID:/Qt/6.5.6/msvc2019_64/include/QtGui -ID:/Qt/6.5.6/msvc2019_64/include/QtCore -I. -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" ..\..\countdowntimer.h -o release\moc_countdowntimer.cpp
@@ -572,24 +569,50 @@ release\moc_mainwindow.cpp: ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\QTransform \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qnativeinterface.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabwidget.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
+		..\..\countdowntimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QApplication \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qapplication.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qcoreapplication.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qeventloop.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qcoreapplication_platform.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qfuture.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qfutureinterface.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qmutex.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtsan_impl.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qresultstore.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qfuture_impl.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthreadpool.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthread.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qdeadlinetimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qrunnable.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qexception.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qpromise.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qinputmethod.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTableWidget \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtablewidget.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtableview.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemview.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qabstractitemmodel.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qitemselectionmodel.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyleoption.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qvalidator.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qregularexpression.h \
@@ -779,7 +802,9 @@ release\countdowntimer.obj: ..\..\countdowntimer.cpp ..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qinputmethod.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qwidget.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qaction.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qkeysequence.h \
@@ -805,19 +830,14 @@ release\countdowntimer.obj: ..\..\countdowntimer.cpp ..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QSize \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QSizeF \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\QTransform \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QVBoxLayout \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qboxlayout.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlayout.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlayoutitem.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qgridlayout.h
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h
 
 release\main.obj: ..\..\main.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QMainWindow \
@@ -979,32 +999,7 @@ release\main.obj: ..\..\main.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\QTransform \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qnativeinterface.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabwidget.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthread.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qdeadlinetimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qelapsedtimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTableWidget \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtablewidget.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtableview.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemview.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qabstractitemmodel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qitemselectionmodel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyleoption.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qvalidator.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qregularexpression.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qslider.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractslider.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyle.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabbar.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qrubberband.h \
+		..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qapplication.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -1017,12 +1012,45 @@ release\main.obj: ..\..\main.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qresultstore.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qfuture_impl.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthreadpool.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthread.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qelapsedtimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qrunnable.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qexception.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qpromise.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qinputmethod.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTableWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtablewidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtableview.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemview.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qabstractitemmodel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qitemselectionmodel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyleoption.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qvalidator.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qregularexpression.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qslider.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractslider.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyle.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabbar.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qrubberband.h
 
 release\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QMainWindow \
@@ -1184,34 +1212,7 @@ release\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\QTransform \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qnativeinterface.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabwidget.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthread.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qdeadlinetimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qelapsedtimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTableWidget \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtablewidget.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtableview.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemview.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qabstractitemmodel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qitemselectionmodel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyleoption.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qvalidator.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qregularexpression.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qslider.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractslider.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyle.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabbar.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qrubberband.h \
-		ui_mainwindow.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QVariant \
+		..\..\countdowntimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QApplication \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qapplication.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -1224,12 +1225,47 @@ release\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qresultstore.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qfuture_impl.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthreadpool.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qthread.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qelapsedtimer.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qrunnable.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qexception.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qpromise.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qinputmethod.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qlocale.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qframe.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QTimer \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qtimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qbasictimer.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QThread \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTableWidget \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtablewidget.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtableview.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemview.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qabstractitemmodel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qitemselectionmodel.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyleoption.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qvalidator.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\qregularexpression.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qslider.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractslider.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstyle.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtabbar.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qrubberband.h \
+		ui_mainwindow.h \
+		D:\Qt\6.5.6\msvc2019_64\include\QtCore\QVariant \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QHBoxLayout \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qboxlayout.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlayout.h \
@@ -1237,10 +1273,6 @@ release\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qgridlayout.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QHeaderView \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qheaderview.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLabel \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlabel.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qpicture.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextdocument.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QLineEdit \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qlineedit.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtGui\qtextcursor.h \
@@ -1251,13 +1283,9 @@ release\mainwindow.obj: ..\..\mainwindow.cpp ..\..\mainwindow.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qabstractbutton.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QSpacerItem \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QStackedWidget \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qstackedwidget.h \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QTextEdit \
 		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\qtextedit.h \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QVBoxLayout \
-		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QWidget \
-		..\..\countdowntimer.h
+		D:\Qt\6.5.6\msvc2019_64\include\QtWidgets\QVBoxLayout
 
 release\qrc_font.obj: release\qrc_font.cpp 
 
