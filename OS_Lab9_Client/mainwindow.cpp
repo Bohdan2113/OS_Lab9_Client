@@ -1,19 +1,69 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 #include <fstream>
 #include <vector>
+
+#include "client.h"
+
+SOCKET gConnectSocket = INVALID_SOCKET;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    timer = nullptr;
+
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->homePage);
+
+    podium.push_back(ui->firstPlaceLabel);
+    podium.push_back(ui->secondPlaceLabel);
+    podium.push_back(ui->thirdPlaceLabel);
+
+    do{
+        mutexQueue = CreateMutex(NULL, FALSE, NULL);
+        if (mutexQueue == NULL) {
+            qDebug() << "CreateMutex failed with error: " << GetLastError();
+            break;
+        }
+
+        int iResult = 0;
+
+        WSADATA wsaData;
+        struct addrinfo  hints;
+
+        iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+        if (iResult != 0) {
+            qDebug() << "WSAStartup failed with error: " << iResult;
+            break;
+        }
+
+        ZeroMemory(&hints, sizeof(hints));
+        hints.ai_family = AF_UNSPEC;
+        hints.ai_socktype = SOCK_STREAM;
+        hints.ai_protocol = IPPROTO_TCP;
+
+        iResult = getaddrinfo(DEFAULT_HOST, DEFAULT_PORT, &hints, &result);
+        if (iResult != 0 || result == NULL) {
+            qDebug() << "getaddrinfo failed with error: " << iResult;
+            WSACleanup();
+            break;
+        }
+    }while(0);
 }
 
 MainWindow::~MainWindow()
 {
+    freeaddrinfo(result);
+    CloseHandle(mutexQueue);
+    closesocket(gConnectSocket);
+    WSACleanup();
+
+    delete timer;
+    timer = nullptr;
+
     delete ui;
 }
 
@@ -33,41 +83,50 @@ void MainWindow::on_joinButton_clicked()
         return;
     }
 
-    ui->stackedWidget->setCurrentWidget(ui->waitPage);
-    ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    if(!tryListening(gConnectSocket, myName)) {
+        QMessageBox::warning(this, "Error", "Couldn`t connect to the server.\nTry again later.");
+        return;
+    }
 
-    QTimer::singleShot(1000, this, [this]() {
-        ui->stackedWidget->setCurrentWidget(ui->ideaPage);
-    });
+    ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->stackedWidget->setCurrentWidget(ui->waitPage);
 
 }
 
 void MainWindow::on_sendButton_clicked()
 {
-    std::ofstream ideaFile("C:\\Users\\bogda\\OneDrive\\Desktop\\Ideas.txt", std::ios::app);
-    if (!ideaFile.is_open())
-        return;
-
-    std::string ideaItem = ui->newIdeaTextEdit->toPlainText().toStdString();
-    if(ideaItem.empty())
+    std::string ideaText = ui->newIdeaTextEdit->toPlainText().toStdString();
+    if(ideaText.empty())
         return;
 
     ui->newIdeaTextEdit->setText("");
-    ideaFile << ideaItem << std::endl;
 
-    ideaFile.close();
+    sendIdea(ideaText);
 }
 
 void MainWindow::on_quitButton_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->waitPage);
+    quitSending();
+
     ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->stackedWidget->setCurrentWidget(ui->waitPage);
 }
 
 void MainWindow::on_voteButton_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->waitPage);
+    QModelIndexList selectedIndexes = ui->voteTable->selectionModel()->selectedIndexes();
+    std::string voiceStr;
+
+    if (!selectedIndexes.isEmpty()) {
+        for (const QModelIndex& index : selectedIndexes) {
+            voiceStr += std::to_string(ideaVector[index.row()].ideaTID) + " ";
+        }
+    }
+
+    sendVoice(voiceStr);
+
     ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->stackedWidget->setCurrentWidget(ui->waitPage);
 }
 
 void MainWindow::on_homeButton_2_clicked()
@@ -81,9 +140,9 @@ void MainWindow::on_homeButton_2_clicked()
         ui->voteTable->removeRow(i);
     }
 
-    ui->firstPlaceLabel->setText(QString::fromStdString("First"));
-    ui->secondPlaceLabel->setText(QString::fromStdString("Second"));
-    ui->thirdPlaceLabel->setText(QString::fromStdString("Third"));
+    ui->firstPlaceLabel->setText(QString::fromStdString(""));
+    ui->secondPlaceLabel->setText(QString::fromStdString(""));
+    ui->thirdPlaceLabel->setText(QString::fromStdString(""));
 
     ui->stackedWidget->setCurrentWidget(ui->homePage);
 }
@@ -134,73 +193,130 @@ void MainWindow::on_newIdeaTextEdit_textChanged()
 
 void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
 {
+    int minutes = 0;
+    int seconds = 0;
+
+    static QTimer* progStageTimer = nullptr; // Таймер для перевірки progStage
+
     switch (pageIndex)
     {
-    case 0: break;
-    case 1:
-        timer = new CountdownTimer(0, 3, ui->timeIdeaLabel, ui->votePage, ui->stackedWidget);
+    case 0:
+        delete timer;
+        timer = nullptr;
         break;
+
+    case 1:
+        delete timer;
+        timer = nullptr;
+
+        minutes = sessionTime / 60;
+        seconds = sessionTime % 60;
+
+        ui->topicIdeaLabel->setText(QString::fromStdString(sessionTopic));
+        timer = new CountdownTimer(minutes, seconds, ui->timeIdeaLabel, ui->waitPage, ui->stackedWidget);
+        break;
+
     case 2:
         delete timer;
         timer = nullptr;
+
         FillVoteTable();
-        timer = new CountdownTimer(0, 3, ui->timeVoteLabel, ui->podiumPage, ui->stackedWidget);
+        timer = new CountdownTimer(1, 0, ui->timeVoteLabel, ui->waitPage, ui->stackedWidget);
         break;
-    case 3: break;
+
+    case 3:
+        delete timer;
+        timer = nullptr;
+
+        // Якщо таймер вже запущений, видалимо його
+        if (progStageTimer) {
+            delete progStageTimer;
+            progStageTimer = nullptr;
+        }
+
+        // Створюємо новий таймер
+        progStageTimer = new QTimer(this);
+        connect(progStageTimer, &QTimer::timeout, [this]() {
+            if (progStage == "SS") {
+                progStage = "DS";
+                ui->stackedWidget->setCurrentWidget(ui->ideaPage);
+
+                progStageTimer->stop();
+                delete progStageTimer;
+                progStageTimer = nullptr;
+            }
+            else if (progStage == "ES") {
+                progStage = "DS";
+            }
+            else if (progStage == "SV") {
+                progStage = "DS";
+                ui->stackedWidget->setCurrentWidget(ui->votePage);
+
+                progStageTimer->stop();
+                delete progStageTimer;
+                progStageTimer = nullptr;
+            }
+            else if (progStage == "EV") {
+                progStage = "DS";
+            }
+            else if (progStage == "TS") {
+                qDebug() << "ProgSatge when TS: " << progStage;
+                progStage = "DS";
+                ui->stackedWidget->setCurrentWidget(ui->podiumPage);
+
+                progStageTimer->stop();
+                delete progStageTimer;
+                progStageTimer = nullptr;
+            }
+            else if (progStage == "LOH") {
+                progStage = "DS";
+                ui->homeButton_2->click();
+                QMessageBox::warning(this, "Error", "Server kicked you ;(\nYou are loh :).");
+
+                progStageTimer->stop();
+                delete progStageTimer;
+                progStageTimer = nullptr;
+            }
+            qDebug() << "ProgSatge: " << progStage;
+        });
+
+        progStageTimer->start(500); // Перевірка кожні 100 мс
+        break;
+
     case 4:
         delete timer;
         timer = nullptr;
+        qDebug() << "Before outpodium";
         OutputPodium();
+        qDebug() << "After outpodium";
         break;
+
     default:
         break;
     }
 }
 
 
+
 void MainWindow::FillVoteTable()
 {
-    std::ifstream ideaFile("C:\\Users\\bogda\\OneDrive\\Desktop\\Ideas.txt");
+    ui->voteTable->setRowCount(ideaVector.size());
 
-    if (!ideaFile.is_open())
-        return;
-
-    std::string ideaItem;
-    int row = 0;
-
-    while (std::getline(ideaFile, ideaItem)) {
-        if(ideaItem.empty())
-            continue;
-
-        ui->voteTable->insertRow(row);
-
-        QTableWidgetItem *item = new QTableWidgetItem(QString::fromStdString(ideaItem));
+    for (int row = 0; row < ideaVector.size(); ++row) {
+        QTableWidgetItem *item = new QTableWidgetItem(QString::fromStdString(ideaVector[row].message));
         ui->voteTable->setItem(row, 0, item);
-
-        row++;
     }
-
-    ideaFile.close();
 }
 
 void MainWindow::OutputPodium()
 {
-    QModelIndexList selectedIndexes = ui->voteTable->selectionModel()->selectedIndexes();
-    std::vector<std::string> topIdea(3);
-    int i = 0;
+    for(int i = 0; i < ideaExtVector.size(); i++) {
+        if (podium[i] == nullptr)
+            qDebug() << "podium " << i << " nullptr";
+        podium[i]->setText(QString::fromStdString(ideaExtVector[i].message));
 
-    if (!selectedIndexes.isEmpty()) {
-        for (const QModelIndex& index : selectedIndexes) {
-            if (i < 3) { // Перевірка на кількість місць
-                QString ideaText = ui->voteTable->item(index.row(), 0)->text(); // Оскільки таблиця має один стовпець
-                topIdea[i++] = ideaText.toStdString();
-            }
-        }
+        qDebug() << "podium set: " << i;
     }
-
-    ui->firstPlaceLabel->setText(QString::fromStdString(topIdea[0]));
-    ui->secondPlaceLabel->setText(QString::fromStdString(topIdea[1]));
-    ui->thirdPlaceLabel->setText(QString::fromStdString(topIdea[2]));
 }
 
 
