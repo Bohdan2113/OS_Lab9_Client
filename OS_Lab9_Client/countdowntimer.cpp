@@ -13,6 +13,10 @@ CountdownTimer::CountdownTimer(int minutes, int seconds, QLabel* label, QWidget*
 
 CountdownTimer::~CountdownTimer()
 {
+    timeLabel->setText(QString("%1:%2")
+                           .arg(0, 2, 10, QChar('0'))
+                           .arg(0, 2, 10, QChar('0')));
+
     delete timer; // Звільняємо таймер
     timer = nullptr;
 }

@@ -44,5 +44,8 @@ private:
 
     std::string myName;
     CountdownTimer* timer;
+
+    std::vector<QLabel*> podium;
+
 };
 #endif // MAINWINDOW_H

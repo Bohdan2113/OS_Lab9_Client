@@ -875,7 +875,7 @@ public:
         QObject::connect(nameJoinLineEdit, &QLineEdit::returnPressed, joinButton, qOverload<>(&QPushButton::click));
         QObject::connect(sendButton, &QPushButton::clicked, newIdeaTextEdit, qOverload<>(&QTextEdit::setFocus));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -903,11 +903,11 @@ public:
         label_22->setText(QString());
         label_23->setText(QCoreApplication::translate("MainWindow", "Top 3 ideas:", nullptr));
         podiumTopicLabel->setText(QCoreApplication::translate("MainWindow", "How to stay survive?", nullptr));
-        secondPlaceLabel->setText(QCoreApplication::translate("MainWindow", "Second", nullptr));
+        secondPlaceLabel->setText(QString());
         label_26->setText(QString());
-        firstPlaceLabel->setText(QCoreApplication::translate("MainWindow", "First", nullptr));
+        firstPlaceLabel->setText(QString());
         label_28->setText(QString());
-        thirdPlaceLabel->setText(QCoreApplication::translate("MainWindow", "Third", nullptr));
+        thirdPlaceLabel->setText(QString());
         label_30->setText(QString());
         homeButton_2->setText(QCoreApplication::translate("MainWindow", "Home", nullptr));
     } // retranslateUi
