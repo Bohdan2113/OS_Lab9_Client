@@ -875,7 +875,7 @@ public:
         QObject::connect(nameJoinLineEdit, &QLineEdit::returnPressed, joinButton, qOverload<>(&QPushButton::click));
         QObject::connect(sendButton, &QPushButton::clicked, newIdeaTextEdit, qOverload<>(&QTextEdit::setFocus));
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

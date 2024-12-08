@@ -240,10 +240,6 @@ void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
             if (progStage == "SS") {
                 progStage = "DS";
                 ui->stackedWidget->setCurrentWidget(ui->ideaPage);
-
-                progStageTimer->stop();
-                delete progStageTimer;
-                progStageTimer = nullptr;
             }
             else if (progStage == "ES") {
                 progStage = "DS";
@@ -295,7 +291,6 @@ void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
         break;
     }
 }
-
 
 
 void MainWindow::FillVoteTable()
