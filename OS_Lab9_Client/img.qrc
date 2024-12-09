@@ -9,5 +9,6 @@
         <file>images/thirdPlacePodium.png</file>
         <file>images/waitPageBackgroung.png</file>
         <file>images/ICON_BW.png</file>
+        <file>images/clientLogo.png</file>
     </qresource>
 </RCC>

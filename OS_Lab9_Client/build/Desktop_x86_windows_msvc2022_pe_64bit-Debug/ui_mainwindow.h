@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -122,6 +123,9 @@ public:
         QFont font;
         font.setPointSize(16);
         MainWindow->setFont(font);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/res/images/clientLogo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_2 = new QVBoxLayout(centralwidget);
@@ -333,7 +337,7 @@ public:
         newIdeaTextEdit->setObjectName("newIdeaTextEdit");
         newIdeaTextEdit->setFont(font);
         newIdeaTextEdit->setStyleSheet(QString::fromUtf8("background: transparent;\n"
-"background-color: rgb(255, 255, 255);"));
+"background-color: rgba(255, 255, 255, 0.7);"));
 
         verticalLayout_3->addWidget(newIdeaTextEdit);
 
@@ -496,7 +500,7 @@ public:
         voteTable->setSizePolicy(sizePolicy4);
         voteTable->setFont(font);
         voteTable->setStyleSheet(QString::fromUtf8("background: transparent;\n"
-"background-color: rgb(255, 255, 255);\n"
+"background-color: rgba(255, 255, 255, 0.7);\n"
 "color: rgb(0, 0, 0);"));
         voteTable->setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored);
         voteTable->setEditTriggers(QAbstractItemView::EditTrigger::NoEditTriggers);
@@ -875,7 +879,7 @@ public:
         QObject::connect(nameJoinLineEdit, &QLineEdit::returnPressed, joinButton, qOverload<>(&QPushButton::click));
         QObject::connect(sendButton, &QPushButton::clicked, newIdeaTextEdit, qOverload<>(&QTextEdit::setFocus));
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -883,7 +887,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "GClient", nullptr));
         label_2->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\">Enter your name</p></body></html>", nullptr));
         warningLabel->setText(QString());

@@ -16,7 +16,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>GClient</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="img.qrc">
+    <normaloff>:/res/images/clientLogo.png</normaloff>:/res/images/clientLogo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -38,7 +42,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="homePage">
        <property name="styleSheet">
@@ -467,7 +471,7 @@ background: transparent;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">background: transparent;
-background-color: rgb(255, 255, 255);</string>
+background-color: rgba(255, 255, 255, 0.7);</string>
             </property>
            </widget>
           </item>
@@ -781,7 +785,7 @@ background: transparent;
           </property>
           <property name="styleSheet">
            <string notr="true">background: transparent;
-background-color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0.7);
 color: rgb(0, 0, 0);</string>
           </property>
           <property name="sizeAdjustPolicy">
@@ -1666,7 +1670,9 @@ QPushButton:pressed {
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>nameJoinLineEdit</sender>
