@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.5.6
+** Created by: Qt User Interface Compiler version 6.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -219,7 +219,7 @@ public:
         joinButton->setSizePolicy(sizePolicy);
         joinButton->setMinimumSize(QSize(150, 0));
         joinButton->setFont(font2);
-        joinButton->setCursor(QCursor(Qt::PointingHandCursor));
+        joinButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         joinButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    width: 222px;                      /* \320\250\320\270\321\200\320\270\320\275\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
 "    height: 50px;                      /* \320\222\320\270\321\201\320\276\321\202\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
@@ -356,7 +356,7 @@ public:
         quitButton->setSizePolicy(sizePolicy);
         quitButton->setMinimumSize(QSize(150, 0));
         quitButton->setFont(font2);
-        quitButton->setCursor(QCursor(Qt::PointingHandCursor));
+        quitButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         quitButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    width: 150px;                      /* \320\250\320\270\321\200\320\270\320\275\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
 "    height: 50px;                      /* \320\222\320\270\321\201\320\276\321\202\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
@@ -390,7 +390,7 @@ public:
         sendButton->setSizePolicy(sizePolicy);
         sendButton->setMinimumSize(QSize(150, 0));
         sendButton->setFont(font2);
-        sendButton->setCursor(QCursor(Qt::PointingHandCursor));
+        sendButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         sendButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    width: 150px;                      /* \320\250\320\270\321\200\320\270\320\275\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
 "    height: 50px;                      /* \320\222\320\270\321\201\320\276\321\202\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
@@ -535,7 +535,7 @@ public:
         voteButton->setSizePolicy(sizePolicy);
         voteButton->setMinimumSize(QSize(150, 52));
         voteButton->setFont(font2);
-        voteButton->setCursor(QCursor(Qt::PointingHandCursor));
+        voteButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         voteButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    width: 150px;                      /* \320\250\320\270\321\200\320\270\320\275\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
 "    height: 50px;                      /* \320\222\320\270\321\201\320\276\321\202\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
@@ -835,7 +835,7 @@ public:
         homeButton_2->setSizePolicy(sizePolicy);
         homeButton_2->setMinimumSize(QSize(150, 0));
         homeButton_2->setFont(font2);
-        homeButton_2->setCursor(QCursor(Qt::PointingHandCursor));
+        homeButton_2->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         homeButton_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    width: 150px;                      /* \320\250\320\270\321\200\320\270\320\275\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"
 "    height: 50px;                      /* \320\222\320\270\321\201\320\276\321\202\320\260 \320\272\320\275\320\276\320\277\320\272\320\270 */\n"

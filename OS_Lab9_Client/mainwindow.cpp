@@ -228,13 +228,11 @@ void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
         delete timer;
         timer = nullptr;
 
-        // Якщо таймер вже запущений, видалимо його
         if (progStageTimer) {
             delete progStageTimer;
             progStageTimer = nullptr;
         }
 
-        // Створюємо новий таймер
         progStageTimer = new QTimer(this);
         connect(progStageTimer, &QTimer::timeout, [this]() {
             if (progStage == "SS") {
@@ -276,15 +274,15 @@ void MainWindow::on_stackedWidget_currentChanged(int pageIndex)
             qDebug() << "ProgSatge: " << progStage;
         });
 
-        progStageTimer->start(500); // Перевірка кожні 100 мс
+        progStageTimer->start(500);
         break;
 
     case 4:
         delete timer;
         timer = nullptr;
-        qDebug() << "Before outpodium";
+
         OutputPodium();
-        qDebug() << "After outpodium";
+
         break;
 
     default:
@@ -305,7 +303,9 @@ void MainWindow::FillVoteTable()
 
 void MainWindow::OutputPodium()
 {
-    for(int i = 0; i < ideaExtVector.size(); i++) {
+    qDebug() << "ideaExtVector.size()= " << ideaExtVector.size() << "\n";
+    printf("ideaExtVector.size()= %d\n", (int)ideaExtVector.size());
+    for(int i = 0; i < ((ideaExtVector.size() < 3) ? ideaExtVector.size() : 3); i++) {
         if (podium[i] == nullptr)
             qDebug() << "podium " << i << " nullptr";
         podium[i]->setText(QString::fromStdString(ideaExtVector[i].message));

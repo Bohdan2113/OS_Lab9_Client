@@ -11,6 +11,7 @@
 #include <sstream>
 #include <string>
 #include <queue>
+#include <QDebug>
 
 #include <iostream>
 #include <iomanip>
