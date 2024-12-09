@@ -140,6 +140,7 @@ void MainWindow::on_homeButton_2_clicked()
         ui->voteTable->removeRow(i);
     }
 
+    ui->podiumTopicLabel->setText("");
     ui->firstPlaceLabel->setText(QString::fromStdString(""));
     ui->secondPlaceLabel->setText(QString::fromStdString(""));
     ui->thirdPlaceLabel->setText(QString::fromStdString(""));
@@ -303,6 +304,8 @@ void MainWindow::FillVoteTable()
 
 void MainWindow::OutputPodium()
 {
+    ui->podiumTopicLabel->setText(QString::fromStdString(sessionTopic));
+
     qDebug() << "ideaExtVector.size()= " << ideaExtVector.size() << "\n";
     printf("ideaExtVector.size()= %d\n", (int)ideaExtVector.size());
     for(int i = 0; i < ((ideaExtVector.size() < 3) ? ideaExtVector.size() : 3); i++) {
@@ -313,10 +316,3 @@ void MainWindow::OutputPodium()
         qDebug() << "podium set: " << i;
     }
 }
-
-
-
-
-
-
-
