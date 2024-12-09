@@ -89,6 +89,8 @@ void MainWindow::on_joinButton_clicked()
     }
 
     ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->waitLabel->setText("Waiting for the session to start ...");
+    ui->waitLabel->setAlignment(Qt::AlignCenter);
     ui->stackedWidget->setCurrentWidget(ui->waitPage);
 
 }
@@ -109,6 +111,8 @@ void MainWindow::on_quitButton_clicked()
     quitSending();
 
     ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->waitLabel->setText("Waiting for the session to end ...");
+    ui->waitLabel->setAlignment(Qt::AlignCenter);
     ui->stackedWidget->setCurrentWidget(ui->waitPage);
 }
 
@@ -126,6 +130,8 @@ void MainWindow::on_voteButton_clicked()
     sendVoice(voiceStr);
 
     ui->nameWaitLabel->setText(QString::fromStdString(myName));
+    ui->waitLabel->setText("Waiting for others to vote ...");
+    ui->waitLabel->setAlignment(Qt::AlignCenter);
     ui->stackedWidget->setCurrentWidget(ui->waitPage);
 }
 

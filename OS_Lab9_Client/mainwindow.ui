@@ -42,7 +42,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="homePage">
        <property name="styleSheet">
@@ -566,7 +566,7 @@ QPushButton:pressed {
 </string>
                </property>
                <property name="text">
-                <string>Quit</string>
+                <string>I`m done</string>
                </property>
               </widget>
              </item>

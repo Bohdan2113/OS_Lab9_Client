@@ -879,7 +879,7 @@ public:
         QObject::connect(nameJoinLineEdit, &QLineEdit::returnPressed, joinButton, qOverload<>(&QPushButton::click));
         QObject::connect(sendButton, &QPushButton::clicked, newIdeaTextEdit, qOverload<>(&QTextEdit::setFocus));
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -895,7 +895,7 @@ public:
         timeIdeaLabel->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
         timeImgIdea->setText(QString());
         topicIdeaLabel->setText(QCoreApplication::translate("MainWindow", "Topic:", nullptr));
-        quitButton->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
+        quitButton->setText(QCoreApplication::translate("MainWindow", "I`m done", nullptr));
         sendButton->setText(QCoreApplication::translate("MainWindow", "Send", nullptr));
         timeVoteLabel->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
         timeImgVote->setText(QString());
